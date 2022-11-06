@@ -9,14 +9,15 @@ const CountersButton: React.FC<CountersButtonProps> = (props) => {
     <TouchableOpacity
       style={{
         backgroundColor: theme.PLUS_MINUS_BUTTONS_BACKGROUND,
-        width: 30,
-        height: 30,
+        width: 24,
+        height: 24,
         borderRadius: 999,
         alignItems: "center",
         justifyContent: "center",
       }}
+      onPress={() => props.onPress()}
     >
-      <Icon name={props.type} size={20} />
+      <Icon name={props.type} size={18} />
     </TouchableOpacity>
   );
 };
