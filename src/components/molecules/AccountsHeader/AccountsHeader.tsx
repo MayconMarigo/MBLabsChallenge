@@ -32,7 +32,7 @@ const AccountsHeader: React.FC<AccountsHeaderProps> = (props) => {
             marginBottom: 10,
           }}
         >
-          {`Olá, ${props.name}`}
+          {`${props.name}`}
         </Text>
         {!!props.button && (
           <CustomButton
