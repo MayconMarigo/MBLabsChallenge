@@ -6,5 +6,9 @@ export interface CustomButtonProps extends TouchableOpacityProps {
   text: string;
   width?: string;
   indicatorColor?: ColorValue;
-  loading: boolean;
+  loading?: boolean;
+  mb?: number;
+  mt?: number;
+  mv?: number;
+  onPress?: () => any;
 }
