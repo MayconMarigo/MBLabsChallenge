@@ -7,47 +7,6 @@ const AccountsTemplate: React.FC<AccountsTemplateProps> = (props) => {
     <>
       <AccountsHeader button avatarName="MB" name="MB Labs" />
       <AccountItemsSection content={props.content} />
-      {/* [
-          {
-            title: "Cartões",
-            subtitle: "Gerenciar seus cartões cadastrados",
-            iconName: "credit-card-alt",
-          },
-          {
-            title: "Minha conta",
-            subtitle: "Gerenciar meus dados",
-            iconName: "user",
-          },
-          {
-            title: "Outras opções...",
-            subtitle: "Gerenciar meus dados",
-            iconName: "user",
-          },
-          {
-            title: "Outras opções...",
-            subtitle: "Gerenciar meus dados",
-            iconName: "user",
-          },
-          {
-            title: "Outras opções...",
-            subtitle: "Gerenciar meus dados",
-            iconName: "user",
-          },
-          {
-            title: "Outras opções...",
-            subtitle: "Gerenciar meus dados",
-            iconName: "user",
-          },
-          {
-            title: "Outras opções...",
-            subtitle: "Gerenciar meus dados",
-            iconName: "user",
-          },
-          {
-            title: "Sair",
-            iconName: "user",
-          },
-        ] */}
     </>
   );
 };
