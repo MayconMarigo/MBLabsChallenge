@@ -1,10 +1,10 @@
 import React, { useContext, useMemo, useState } from "react";
 import { AuthContextData, AuthenticationProps, User } from "./interfaces";
-//to-do : dark theme
+
 
 const AuthContext = React.createContext({} as AuthContextData);
 const AuthProvider: React.FC<AuthenticationProps> = ({ children }) => {
-  //@ts-ignore
+
   const [user, setUser] = useState<User>({});
 
   const signIn = () => {
