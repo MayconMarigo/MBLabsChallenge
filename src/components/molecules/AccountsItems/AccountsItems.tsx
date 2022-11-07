@@ -1,14 +1,22 @@
-import { Fragment } from "react";
+import { Fragment, useState, useEffect } from "react";
 import { ScrollView, Text, TouchableOpacity, View } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
+import { useAuth } from "../../../contexts/Authentication/Authentication";
 import { ThemeUseContext } from "../../../theme/Theme";
 import { AccountsItemsProps, Items } from "./interfaces";
 
 const AccountsItems: React.FC<AccountsItemsProps> = (props) => {
   const theme = ThemeUseContext();
+  const [isLogged, setIsLogged] = useState<boolean>(false);
+  const { user } = useAuth();
+
+  useEffect(() => {
+    setIsLogged(user.isLogged);
+  }, [user]);
+
   return (
     <ScrollView>
-      {!!props.content &&
+      {!!props.content && isLogged ? (
         props.content.map((item: Items, index: number) => {
           return (
             <Fragment key={index}>
@@ -69,7 +77,17 @@ const AccountsItems: React.FC<AccountsItemsProps> = (props) => {
               ) : null}
             </Fragment>
           );
-        })}
+        })
+      ) : (
+        <View
+          style={{
+            paddingTop: 35,
+            alignItems: "center",
+          }}
+        >
+          <Text>Você precisa entrar para gerenciar sua conta!</Text>
+        </View>
+      )}
     </ScrollView>
   );
 };

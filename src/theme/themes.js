@@ -9,8 +9,10 @@ const colors = {
 export const Themes = {
   light: {
     TABS: "#41337A",
-    // HEADER_GRADIENT: "linear-gradient(to bottom, #41337A, rgba(65, 51, 122, 0.75))",
+    ACTIVE_TABS: "#98CAD5",
     HEADER_GRADIENT: "#41337A",
+    HEADER_GRADIENT_TWO: "rgba(65, 51, 122, 0.95)",
+    HEADER_GRADIENT_THREE: "rgba(65, 51, 122, 0.60)",
     INSIDE_COMPONENT: "#98CAD5",
     INSIDE_COMPONENT_LOADING: "rgba(110,164,191,0.5)",
     INPUT_BACKGROUND: "#F3FDF6",

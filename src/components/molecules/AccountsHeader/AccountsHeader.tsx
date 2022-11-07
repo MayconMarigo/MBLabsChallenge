@@ -1,17 +1,26 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Text, View } from "react-native";
 import { ThemeUseContext } from "../../../theme/Theme";
 import Avatar from "../../atoms/Avatar/Avatar";
 import CustomButton from "../../atoms/Button/Button";
 import { AccountsHeaderProps } from "./interfaces";
+import { LinearGradient } from "expo-linear-gradient";
+import { useNavigation } from "@react-navigation/native";
+import { useAuth } from "../../../contexts/Authentication/Authentication";
 
 const AccountsHeader: React.FC<AccountsHeaderProps> = (props) => {
   const theme = ThemeUseContext();
+  const navigation = useNavigation();
+  const { user } = useAuth();
 
-  const [isLogged, setIsLogged] = useState<boolean>(true);
+  const [isLogged, setIsLogged] = useState<boolean>(user.isLogged);
+
+  useEffect(() => {
+    setIsLogged(user.isLogged);
+  }, [user]);
 
   return (
-    <View
+    <LinearGradient
       style={{
         display: "flex",
         flexDirection: "row",
@@ -20,10 +29,14 @@ const AccountsHeader: React.FC<AccountsHeaderProps> = (props) => {
         height: 180,
         alignItems: "flex-end",
         justifyContent: "space-between",
-        backgroundColor: theme.HEADER_GRADIENT,
       }}
+      colors={[
+        theme.HEADER_GRADIENT,
+        theme.HEADER_GRADIENT_TWO,
+        theme.HEADER_GRADIENT_THREE,
+      ]}
     >
-      <View style={{ width: "50%" }}>
+      <View style={{ width: isLogged ? "50%" : "60%" }}>
         <Text
           style={{
             color: theme.DEFAULT_TEXT_HEADER,
@@ -32,9 +45,9 @@ const AccountsHeader: React.FC<AccountsHeaderProps> = (props) => {
             marginBottom: 10,
           }}
         >
-          {`${props.name}`}
+          {isLogged ? `${props.name}` : "Entre para obter ingressos"}
         </Text>
-        {!!props.button && (
+        {!!props.button && isLogged && (
           <CustomButton
             text="Editar Perfil"
             width="100%"
@@ -43,7 +56,7 @@ const AccountsHeader: React.FC<AccountsHeaderProps> = (props) => {
           />
         )}
       </View>
-      {!!props.avatarName && (
+      {!!props.avatarName && isLogged ? (
         <Avatar
           icon={true}
           name={props.avatarName}
@@ -51,8 +64,14 @@ const AccountsHeader: React.FC<AccountsHeaderProps> = (props) => {
           width={100}
           height={100}
         />
+      ) : (
+        <CustomButton
+          text="Entrar"
+          width="30%"
+          onPress={() => navigation.navigate("Login" as never)}
+        />
       )}
-    </View>
+    </LinearGradient>
   );
 };
 export default AccountsHeader;

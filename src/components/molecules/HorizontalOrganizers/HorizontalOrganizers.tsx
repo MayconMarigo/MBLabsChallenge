@@ -19,6 +19,7 @@ const HorizontalOrganizers: React.FC<HorizontalOrganizersProps> = (props) => {
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={{
           paddingLeft: 10,
+          marginBottom: 30,
         }}
       >
         {!!props.content &&
