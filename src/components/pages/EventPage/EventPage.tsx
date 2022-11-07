@@ -1,9 +1,11 @@
 import EventPageTemplate from "../../templates/EventPageTemplate/EventPageTemplate";
 import { ScrollView } from "react-native";
+import { StatusBar } from "expo-status-bar";
 
 const EventPage = () => {
   return (
     <ScrollView>
+      <StatusBar backgroundColor="transparent" />
       <EventPageTemplate
         title="Eventão número um!"
         date="30 de março"
