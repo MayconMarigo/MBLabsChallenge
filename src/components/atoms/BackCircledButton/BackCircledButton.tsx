@@ -17,6 +17,7 @@ const BackCircledButton: React.FC<BackCircledButtonProps> = (props) => {
           borderRadius: 999,
           ...props,
         }}
+        onPress={() => props.onPress()}
       >
         <Icon name="chevron-left" color={themes.DEFAULT_TEXT_HEADER} />
       </TouchableOpacity>

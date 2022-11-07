@@ -4,4 +4,5 @@ export interface AuthenticationFooterSectionProps {
   firstText: string;
   secondText: string;
   secondTextColor?: ColorValue;
+  onPress: () => any;
 }

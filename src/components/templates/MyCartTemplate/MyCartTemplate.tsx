@@ -4,7 +4,7 @@ import AccountsNotLoggedSection from "../../organisms/AccountsNotLoggedSection/A
 const MyCartTemplate = () => {
   return (
     <>
-      <AccountsHeader name="Meu Carrinho" />
+      <AccountsHeader name="Meu Carrinho" avatarName="MB" />
       <AccountsNotLoggedSection />
     </>
   );

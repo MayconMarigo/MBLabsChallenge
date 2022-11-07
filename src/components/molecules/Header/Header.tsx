@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useNavigation } from "@react-navigation/native";
+import { useState, useEffect } from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 import Icon from "react-native-vector-icons/Fontisto";
+import { useAuth } from "../../../contexts/Authentication/Authentication";
 import { ThemeUseContext } from "../../../theme/Theme";
 import Avatar from "../../atoms/Avatar/Avatar";
 import CustomButton from "../../atoms/Button/Button";
@@ -8,8 +10,14 @@ import { HeaderProps } from "./interface";
 
 const Header: React.FC<HeaderProps> = (props) => {
   const theme = ThemeUseContext();
+  const navigation = useNavigation();
+  const { user, signIn } = useAuth();
 
-  const [isLogged, setIsLogged] = useState<boolean>(true);
+  const [isLogged, setIsLogged] = useState<boolean>(user.isLogged);
+
+  useEffect(() => {
+    setIsLogged(user.isLogged);
+  }, [user]);
 
   return (
     <View
@@ -58,6 +66,8 @@ const Header: React.FC<HeaderProps> = (props) => {
           width="30%"
           bgColor={theme.AVATAR_BACKGROUND}
           textColor={theme.DEFAULT_TEXT_HEADER}
+          onPress={() => navigation.navigate("Login" as never)}
+          // onPress={() => signIn()}
         />
       )}
     </View>

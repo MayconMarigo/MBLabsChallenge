@@ -22,7 +22,7 @@ const AbsoluteViewWithRoundedCorner: React.FC<
           left: "-45%",
           borderRadius: 999,
           position: "absolute",
-          bottom: props.inverse ? "-70%" : -115,
+          bottom: props.inverse ? "-80%" : -115,
         }}
       />
     </View>

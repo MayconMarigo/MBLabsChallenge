@@ -3,7 +3,8 @@ import { useState } from "react";
 import CustomButton from "../../atoms/Button/Button";
 import CustomInputWithIcon from "../../molecules/CustomInputWithIcon/CustomInputWithIcon";
 import TouchableText from "../../molecules/TouchableText/TouchableText";
-const LoginAccountsSection = () => {
+
+const LoginAccountsSection = (props: { onButtonPress: () => any }) => {
   const [secure, setSecure] = useState<boolean>(false);
 
   return (
@@ -39,6 +40,7 @@ const LoginAccountsSection = () => {
         bgColor="#41337A"
         textColor="#fff"
         width="50%"
+        onPress={() => props.onButtonPress()}
       />
     </View>
   );

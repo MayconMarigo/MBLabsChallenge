@@ -8,7 +8,7 @@ import { HomeTemplateProps } from "./interfaces";
 const HomeTemplate: React.FC<HomeTemplateProps> = (props) => {
   return (
     <ScrollView>
-      <Header avatarName="MB" name="Olá, MB Labs" />
+      <Header avatarName="MB" name="MB Labs" />
       <AdsSection content={props.AdContent} />
       <EventsSection content={props.EventsContent} />
       <OrganizersSection content={props.OrganizerContent} />
